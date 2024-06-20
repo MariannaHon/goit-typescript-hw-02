@@ -13,7 +13,7 @@ export const fetchImagesWithSearch = async (search: string, page: number): Promi
         query: search,
     })
 
-    const response = await axios.get(`/search/photos?${params}`);
+    const response = await axios.get<FetchImagesResponse>(`/search/photos?${params}`);
     return {
         results: response.data.results,
         total: response.data.total,
